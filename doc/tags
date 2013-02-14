@@ -1,0 +1,3 @@
+vim-scroll-position	scroll-position.txt	/*scroll-position*
+g:scroll_position_marker	scroll-position.txt	/*g:scroll_position_marker*
+g:scroll_position_exclusion	scroll-position.txt	/*g:scroll_position_exclusion*

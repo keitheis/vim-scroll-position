@@ -1,0 +1,40 @@
+vim-scroll-position         *vim-scroll-position*  *scroll-position*
+
+Author: Junegunn Choi <https://github.com/junegunn>
+
+This plugin shows the current scroll position using 'signs' feature.
+
+
+=====================================================================
+CUSTOMIZATION
+
+
+Highlighting example                      *scroll-position-highlight*
+---------------------------------------------------------------------
+:set t_Co=256
+:highlight ScrollPositionMarker ctermfg=208 ctermbg=232
+:highlight SignColumn ctermbg=232
+
+
+*g:scroll_position_marker*
+---------------------------------------------------------------------
+(default: ">")
+Characters used as position marker.
+
+
+*g:scroll_position_exclusion*
+---------------------------------------------------------------------
+(default: "&buftype == 'nofile'")
+Vimscript condition for disabling scroller.
+
+
+=====================================================================
+FUNCTIONS
+
+:call scroll_position#show()
+---------------------------------------------------------------------
+Enable plugin
+
+:call scroll_position#hide()
+---------------------------------------------------------------------
+Disable plugin
