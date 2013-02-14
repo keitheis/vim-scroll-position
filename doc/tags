@@ -1,3 +1,5 @@
-vim-scroll-position	scroll-position.txt	/*scroll-position*
-g:scroll_position_marker	scroll-position.txt	/*g:scroll_position_marker*
 g:scroll_position_exclusion	scroll-position.txt	/*g:scroll_position_exclusion*
+g:scroll_position_marker	scroll-position.txt	/*g:scroll_position_marker*
+scroll-position	scroll-position.txt	/*scroll-position*
+scroll-position-highlight	scroll-position.txt	/*scroll-position-highlight*
+vim-scroll-position	scroll-position.txt	/*vim-scroll-position*
