@@ -13,13 +13,27 @@ Highlighting example                      *scroll-position-highlight*
 ---------------------------------------------------------------------
 :set t_Co=256
 :highlight ScrollPositionMarker ctermfg=208 ctermbg=232
+:highlight ScrollPositionChange ctermfg=124 ctermbg=232
+:highlight ScrollPositionJump ctermfg=131 ctermbg=232
 :highlight SignColumn ctermbg=232
 
 
 *g:scroll_position_marker*
 ---------------------------------------------------------------------
 (default: ">")
-Characters used as position marker.
+Marker character for current position.
+
+
+*g:scroll_position_jump*
+---------------------------------------------------------------------
+(default: "-")
+Latest jump position.
+
+
+*g:scroll_position_change*
+---------------------------------------------------------------------
+(default: "+")
+Latest change position.
 
 
 *g:scroll_position_exclusion*
@@ -34,6 +48,7 @@ FUNCTIONS
 :call scroll_position#show()
 ---------------------------------------------------------------------
 Enable plugin
+
 
 :call scroll_position#hide()
 ---------------------------------------------------------------------

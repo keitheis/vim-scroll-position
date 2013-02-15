@@ -1,8 +1,13 @@
 # vim-scroll-position
 
+Displays relative cursor position on the left y-axis using signs feature.
+
 ![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/vim-scroll-position.png)
 
-(See the orange arrow on the left?)
+See the orange arrow on the left?
+- `>` Current position
+- `-` Latest jump position
+- `+` Latest change position
 
 ## Installation
 
@@ -28,8 +33,15 @@ Then,
 ### Customization
 
 ```viml
+set t_Co=256
+
 highlight ScrollPositionMarker ctermfg=208 ctermbg=232
+highlight ScrollPositionChange ctermfg=124 ctermbg=232
+highlight ScrollPositionJump ctermfg=131 ctermbg=232
 highlight SignColumn ctermbg=232
 
-let g:scroll_position_marker = '>>'
+" Default markers
+" let g:scroll_position_marker = '>'
+" let g:scroll_position_jump = '-'
+" let g:scroll_position_change = '+'
 ```
