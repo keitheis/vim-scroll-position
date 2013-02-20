@@ -26,14 +26,14 @@ Marker character for current position.
 
 *g:scroll_position_jump*
 ---------------------------------------------------------------------
-(default: "-")
-Latest jump position.
+(default: undefined)
+Marker character for the latest jump position.
 
 
 *g:scroll_position_change*
 ---------------------------------------------------------------------
-(default: "+")
-Latest change position.
+(default: undefined)
+Marker character for the latest change position.
 
 
 *g:scroll_position_exclusion*
@@ -53,6 +53,7 @@ Enable plugin
 *:ScrollPositionHide*
 ---------------------------------------------------------------------
 Disable plugin
+
 
 *:ScrollPositionToggle*
 ---------------------------------------------------------------------
