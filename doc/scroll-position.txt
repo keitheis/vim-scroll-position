@@ -45,11 +45,15 @@ Vimscript condition for disabling scroller.
 =====================================================================
 FUNCTIONS
 
-:call scroll_position#show()
+*:ScrollPositionShow*
 ---------------------------------------------------------------------
 Enable plugin
 
 
-:call scroll_position#hide()
+*:ScrollPositionHide*
 ---------------------------------------------------------------------
 Disable plugin
+
+*:ScrollPositionToggle*
+---------------------------------------------------------------------
+Toggle plugin

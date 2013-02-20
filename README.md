@@ -33,15 +33,17 @@ Then,
 ### Customization
 
 ```viml
+" Default markers
+let g:scroll_position_marker = '>'
+
+" Additional markers disabled by default due to slow rendering
+" let g:scroll_position_jump = '-'
+" let g:scroll_position_change = '+'
+
 set t_Co=256
 
 highlight ScrollPositionMarker ctermfg=208 ctermbg=232
 highlight ScrollPositionChange ctermfg=124 ctermbg=232
 highlight ScrollPositionJump ctermfg=131 ctermbg=232
 highlight SignColumn ctermbg=232
-
-" Default markers
-" let g:scroll_position_marker = '>'
-" let g:scroll_position_jump = '-'
-" let g:scroll_position_change = '+'
 ```
