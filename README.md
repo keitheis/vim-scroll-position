@@ -34,7 +34,11 @@ Then,
 
 ```viml
 " Default markers
-let g:scroll_position_marker = '>'
+let g:scroll_position_marker         = '>'
+let g:scroll_position_visual_begin   = '^'
+let g:scroll_position_visual_middle  = ':'
+let g:scroll_position_visual_end     = 'v'
+let g:scroll_position_visual_overlap = '<>'
 
 " Additional markers disabled by default due to slow rendering
 " let g:scroll_position_jump = '-'
@@ -42,8 +46,12 @@ let g:scroll_position_marker = '>'
 
 set t_Co=256
 
-highlight ScrollPositionMarker ctermfg=208 ctermbg=232
-highlight ScrollPositionChange ctermfg=124 ctermbg=232
-highlight ScrollPositionJump ctermfg=131 ctermbg=232
-highlight SignColumn ctermbg=232
+hi SignColumn                  ctermbg=232
+hi ScrollPositionMarker        ctermfg=208 ctermbg=232
+hi ScrollPositionVisualBegin   ctermfg=208 ctermbg=232
+hi ScrollPositionVisualMiddle  ctermfg=208 ctermbg=232
+hi ScrollPositionVisualEnd     ctermfg=208 ctermbg=232
+hi ScrollPositionVisualOverlap ctermfg=208 ctermbg=232
+hi ScrollPositionChange        ctermfg=124 ctermbg=232
+hi ScrollPositionJump          ctermfg=131 ctermbg=232
 ```

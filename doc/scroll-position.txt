@@ -15,25 +15,53 @@ Highlighting example                      *scroll-position-highlight*
 :highlight ScrollPositionMarker ctermfg=208 ctermbg=232
 :highlight ScrollPositionChange ctermfg=124 ctermbg=232
 :highlight ScrollPositionJump ctermfg=131 ctermbg=232
+:highlight ScrollPositionVisualBegin ctermfg=208 ctermbg=232
+:highlight ScrollPositionVisualMiddle ctermfg=208 ctermbg=232
+:highlight ScrollPositionVisualEnd ctermfg=208 ctermbg=232
+:highlight ScrollPositionVisualOverlap ctermfg=208 ctermbg=232
 :highlight SignColumn ctermbg=232
 
 
 *g:scroll_position_marker*
 ---------------------------------------------------------------------
 (default: ">")
-Marker character for current position.
+Marker for current position.
+
+
+*g:scroll_position_visual_begin*
+---------------------------------------------------------------------
+(default: "^")
+Marker for the beginning of the visual block.
+
+
+*g:scroll_position_visual_middle*
+---------------------------------------------------------------------
+(default: ":")
+Marker for the middle part of the visual block.
+
+
+*g:scroll_position_visual_end*
+---------------------------------------------------------------------
+(default: "v")
+Marker for the end of the visual block.
+
+
+*g:scroll_position_visual_overlap*
+---------------------------------------------------------------------
+(default: "<>")
+Marker for the visual block whose begin and end overlap
 
 
 *g:scroll_position_jump*
 ---------------------------------------------------------------------
 (default: undefined)
-Marker character for the latest jump position.
+Marker for the latest jump position.
 
 
 *g:scroll_position_change*
 ---------------------------------------------------------------------
 (default: undefined)
-Marker character for the latest change position.
+Marker for the latest change position.
 
 
 *g:scroll_position_exclusion*
