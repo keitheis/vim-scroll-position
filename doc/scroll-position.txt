@@ -2,8 +2,8 @@ vim-scroll-position         *vim-scroll-position*  *scroll-position*
 
 Author: Junegunn Choi <https://github.com/junegunn>
 
-This plugin displays the relative position of the cursor
-within the buffer like a scrollbar's thumb using the `sign` feature.
+This plugin displays the relative position of the cursor within the buffer
+on the left side of the screen using the `sign` feature.
 
 https://github.com/junegunn/vim-scroll-position
 
