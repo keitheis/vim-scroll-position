@@ -2,7 +2,10 @@ vim-scroll-position         *vim-scroll-position*  *scroll-position*
 
 Author: Junegunn Choi <https://github.com/junegunn>
 
-This plugin shows the current scroll position using 'signs' feature.
+This plugin displays the relative position of the cursor
+within the buffer like a scrollbar's thumb using the `sign` feature.
+
+https://github.com/junegunn/vim-scroll-position
 
 
 =====================================================================
@@ -13,12 +16,12 @@ Highlighting example                      *scroll-position-highlight*
 ---------------------------------------------------------------------
 :set t_Co=256
 :highlight ScrollPositionMarker ctermfg=208 ctermbg=232
+:highlight ScrollPositionVisualBegin ctermfg=196 ctermbg=232
+:highlight ScrollPositionVisualMiddle ctermfg=196 ctermbg=232
+:highlight ScrollPositionVisualEnd ctermfg=196 ctermbg=232
+:highlight ScrollPositionVisualOverlap ctermfg=196 ctermbg=232
 :highlight ScrollPositionChange ctermfg=124 ctermbg=232
 :highlight ScrollPositionJump ctermfg=131 ctermbg=232
-:highlight ScrollPositionVisualBegin ctermfg=208 ctermbg=232
-:highlight ScrollPositionVisualMiddle ctermfg=208 ctermbg=232
-:highlight ScrollPositionVisualEnd ctermfg=208 ctermbg=232
-:highlight ScrollPositionVisualOverlap ctermfg=208 ctermbg=232
 :highlight SignColumn ctermbg=232
 
 
