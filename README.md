@@ -1,10 +1,9 @@
 # vim-scroll-position
 
-Displays relative cursor position on the left y-axis using signs feature.
+This plugin displays the relative position of the cursor within the buffer like a scrollbar's thumb using the `sign` feature.
 
 ![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/vim-scroll-position.png)
 
-See the orange arrow on the left?
 - `>` Current position
 - `-` Latest jump position
 - `+` Latest change position
@@ -48,10 +47,10 @@ set t_Co=256
 
 hi SignColumn                  ctermbg=232
 hi ScrollPositionMarker        ctermfg=208 ctermbg=232
-hi ScrollPositionVisualBegin   ctermfg=208 ctermbg=232
-hi ScrollPositionVisualMiddle  ctermfg=208 ctermbg=232
-hi ScrollPositionVisualEnd     ctermfg=208 ctermbg=232
-hi ScrollPositionVisualOverlap ctermfg=208 ctermbg=232
+hi ScrollPositionVisualBegin   ctermfg=196 ctermbg=232
+hi ScrollPositionVisualMiddle  ctermfg=196 ctermbg=232
+hi ScrollPositionVisualEnd     ctermfg=196 ctermbg=232
+hi ScrollPositionVisualOverlap ctermfg=196 ctermbg=232
 hi ScrollPositionChange        ctermfg=124 ctermbg=232
 hi ScrollPositionJump          ctermfg=131 ctermbg=232
 ```
