@@ -17,7 +17,7 @@ function scroll_position#show()
 
   " For visual range
   if !exists("g:scroll_position_visual")
-    let g:scroll_position_visual = 2
+    let g:scroll_position_visual = 1
   endif
 
   let s:vtypes = copy(s:types)
@@ -54,7 +54,7 @@ function scroll_position#show()
 
   augroup ScrollPosition
     autocmd!
-    autocmd BufNewFile,BufRead * exec printf("sign place 888880 line=1 name=scroll_position_e buffer=%d", bufnr('%'))
+    autocmd BufNewFile,BufRead * exec printf("sign place 8888880 line=1 name=scroll_position_e buffer=%d", bufnr('%'))
     autocmd WinEnter,CursorMoved,CursorMovedI,VimResized * :call scroll_position#update()
   augroup END
 
@@ -140,10 +140,9 @@ function scroll_position#update()
   endfor
 
   " Remove invalidated signs (after placing new signs!)
-  let keys = keys(places)
   if !lines_changed
     for pp in pkeys
-      if index(keys, pp) == -1
+      if !has_key(places, pp)
         exec printf("sign unplace 99999%d buffer=%d", pp, bfr)
       endif
     endfor

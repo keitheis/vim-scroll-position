@@ -31,6 +31,15 @@ Highlighting example                      *scroll-position-highlight*
 Marker for current position.
 
 
+*g:scroll_position_visual*
+---------------------------------------------------------------------
+(default: 1)
+Ways to display visual range.
+0: Do not display visual range (fast)
+1: Place signs on the beginning and the end of the range
+2: Displays the entire range with signs (slow)
+
+
 *g:scroll_position_visual_begin*
 ---------------------------------------------------------------------
 (default: "^")
