@@ -16,6 +16,10 @@ function scroll_position#show()
   endif
 
   " For visual range
+  if !exists("g:scroll_position_visual")
+    let g:scroll_position_visual = 2
+  endif
+
   let s:vtypes = copy(s:types)
   if !exists("g:scroll_position_visual_begin")
     let g:scroll_position_visual_begin = '^'
@@ -42,6 +46,7 @@ function scroll_position#show()
   exec "sign define scroll_position_vm text=".g:scroll_position_visual_middle." texthl=ScrollPositionVisualMiddle"
   exec "sign define scroll_position_ve text=".g:scroll_position_visual_end." texthl=ScrollPositionVisualEnd"
   exec "sign define scroll_position_vo text=".g:scroll_position_visual_overlap." texthl=ScrollPositionVisualOverlap"
+  sign define scroll_position_e
 
   if !exists("g:scroll_position_exclusion")
     let g:scroll_position_exclusion = "&buftype == 'nofile'"
@@ -49,6 +54,7 @@ function scroll_position#show()
 
   augroup ScrollPosition
     autocmd!
+    autocmd BufNewFile,BufRead * exec printf("sign place 888880 line=1 name=scroll_position_e buffer=%d", bufnr('%'))
     autocmd WinEnter,CursorMoved,CursorMovedI,VimResized * :call scroll_position#update()
   augroup END
 
@@ -75,7 +81,7 @@ function scroll_position#update()
     let b:scroll_position_pplaces = {}
     let b:scroll_position_plines = line('$')
   endif
-  if mode() == 'v'
+  if g:scroll_position_visual > 0 && mode() == 'v'
     let types = s:vtypes
   else
     let types = s:types
@@ -96,11 +102,28 @@ function scroll_position#update()
     endif
   endfor
 
+  " Display visual range
+  if g:scroll_position_visual > 0 && mode() == 'v'
+    let [b, e] = sort([places_r['vb'], places_r['ve']], 's:NumSort')
+    if b < e
+      let places[b] = 'vb'
+      if g:scroll_position_visual > 1
+        for l in range(b + 1, e - 1)
+          let places[l] = 'vm'
+        endfor
+      endif
+      let places[e] = 've'
+    else
+      let places[b] = 'vo'
+    endif
+  endif
+
+  let lines_changed = lines != b:scroll_position_plines
+
   " Remove all previous signs when total number of lines changed
   let pkeys = keys(pplaces)
-  if lines != b:scroll_position_plines
+  if lines_changed
     let temp_lineno = top + float2nr(height * (line('.') - 1) / lines)
-    exec printf("sign place 888880 line=%d name=scroll_position_m buffer=%d", temp_lineno, bfr)
     for pos in pkeys
       exec printf("sign unplace 99999%d buffer=%d", pos, bfr)
     endfor
@@ -111,40 +134,19 @@ function scroll_position#update()
   " - New position
   " - Type changed
   for [pos, type] in items(places)
-    if lines != b:scroll_position_plines || !has_key(pplaces, pos) || type != pplaces[pos]
+    if lines_changed || !has_key(pplaces, pos) || type != pplaces[pos]
       exec printf(s:format, pos, pos, type, bfr)
     endif
   endfor
 
-  " Display visual range
-  if mode() == 'v'
-    let [b, e] = sort([places_r['vb'], places_r['ve']], 's:NumSort')
-    if b < e
-      let places[b] = 'vb'
-      let places[e] = 've'
-
-      exec printf(s:format, b, b, 'vb', bfr)
-      for l in range(b + 1, e - 1)
-        exec printf(s:format, l, l, 'vm', bfr)
-        let places[l] = 'vm'
-      endfor
-      exec printf(s:format, e, e, 've', bfr)
-    else
-      let places[b] = 'vo'
-      exec printf(s:format, b, b, 'vo', bfr)
-    endif
-  endif
-
   " Remove invalidated signs (after placing new signs!)
   let keys = keys(places)
-  if lines == b:scroll_position_plines
+  if !lines_changed
     for pp in pkeys
       if index(keys, pp) == -1
         exec printf("sign unplace 99999%d buffer=%d", pp, bfr)
       endif
     endfor
-  else
-    exec printf("sign unplace 888880 buffer=%d", bfr)
   endif
 
   let b:scroll_position_plines = lines
