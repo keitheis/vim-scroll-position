@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vim-scroll-position by junegunn</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vim-scroll-position</h1>
+        <p>Vim plugin to display the relative position of the cursor on the left side of the screen</p>
+
+        <p class="view"><a href="https://github.com/junegunn/vim-scroll-position">View the Project on GitHub <small>junegunn/vim-scroll-position</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/junegunn/vim-scroll-position/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/junegunn/vim-scroll-position/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/junegunn/vim-scroll-position">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>vim-scroll-position</h1>
+
+<p>This plugin displays the relative position of the cursor within the buffer
+on the left side of the screen using the <code>sign</code> feature.</p>
+
+<p><img src="https://github.com/junegunn/vim-scroll-position/raw/master/vim-scroll-position.png" alt="vim-scroll-position"></p>
+
+<ul>
+<li>
+<code>&gt;</code> Current position</li>
+<li>
+<code>-</code> Latest jump position</li>
+<li>
+<code>+</code> Latest change position</li>
+</ul><h2>Installation</h2>
+
+<h3>With <a href="https://github.com/gmarik/vundle">Vundle</a>
+</h3>
+
+<p>Add this line to your .vimrc</p>
+
+<pre><code>Bundle 'junegunn/vim-scroll-position'
+</code></pre>
+
+<p>Then,</p>
+
+<div class="highlight"><pre><span class="p">:</span>BundleInstall
+</pre></div>
+
+<h3>Help</h3>
+
+<div class="highlight"><pre><span class="p">:</span>help <span class="k">vim</span><span class="p">-</span><span class="nb">scroll</span><span class="p">-</span>position
+</pre></div>
+
+<h3>Customization</h3>
+
+<div class="highlight"><pre><span class="c">" Default markers</span>
+<span class="k">let</span> <span class="k">g</span>:scroll_position_marker         <span class="p">=</span> <span class="s1">'&gt;'</span>
+<span class="k">let</span> <span class="k">g</span>:scroll_position_visual_begin   <span class="p">=</span> <span class="s1">'^'</span>
+<span class="k">let</span> <span class="k">g</span>:scroll_position_visual_middle  <span class="p">=</span> <span class="s1">':'</span>
+<span class="k">let</span> <span class="k">g</span>:scroll_position_visual_end     <span class="p">=</span> <span class="s1">'v'</span>
+<span class="k">let</span> <span class="k">g</span>:scroll_position_visual_overlap <span class="p">=</span> <span class="s1">'&lt;&gt;'</span>
+
+<span class="c">" Additional markers disabled by default due to slow rendering</span>
+<span class="c">" let g:scroll_position_jump = '-'</span>
+<span class="c">" let g:scroll_position_change = '+'</span>
+
+<span class="k">set</span> <span class="nb">t_Co</span><span class="p">=</span><span class="m">256</span>
+
+<span class="k">hi</span> SignColumn                  ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionMarker        ctermfg<span class="p">=</span><span class="m">208</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionVisualBegin   ctermfg<span class="p">=</span><span class="m">196</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionVisualMiddle  ctermfg<span class="p">=</span><span class="m">196</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionVisualEnd     ctermfg<span class="p">=</span><span class="m">196</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionVisualOverlap ctermfg<span class="p">=</span><span class="m">196</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionChange        ctermfg<span class="p">=</span><span class="m">124</span> ctermbg<span class="p">=</span><span class="m">232</span>
+<span class="k">hi</span> ScrollPositionJump          ctermfg<span class="p">=</span><span class="m">131</span> ctermbg<span class="p">=</span><span class="m">232</span>
+</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/junegunn">junegunn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
