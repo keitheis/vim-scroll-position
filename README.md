@@ -7,7 +7,7 @@ on the left side of the screen using the `sign` feature.
 
 - `>` Current position
 - `-` Latest jump position
-- `+` Latest change position
+- `x` Latest change position
 
 ## Installation
 
@@ -42,7 +42,7 @@ let g:scroll_position_visual_overlap = '<>'
 
 " Additional markers disabled by default due to slow rendering
 " let g:scroll_position_jump = '-'
-" let g:scroll_position_change = '+'
+" let g:scroll_position_change = 'x'
 
 set t_Co=256
 
