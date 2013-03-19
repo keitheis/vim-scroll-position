@@ -3,7 +3,7 @@
 This plugin displays the relative position of the cursor within the buffer
 on the left side of the screen using the `sign` feature.
 
-![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/vim-scroll-position.png)
+![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/screenshot1.png)
 
 - `>` Current position
 - `-` Latest jump position
@@ -55,3 +55,17 @@ hi ScrollPositionVisualOverlap ctermfg=196 ctermbg=232
 hi ScrollPositionChange        ctermfg=124 ctermbg=232
 hi ScrollPositionJump          ctermfg=131 ctermbg=232
 ```
+
+### Display of visual range
+
+You can configure how to display visual range on the gutter using `g:scroll_position_visual` variable.
+
+#### `let g:scroll_position_visual = 1`
+
+![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/screenshot2.png)
+
+#### `let g:scroll_position_visual = 2`
+
+This looks better, but considerably slower than mode 1.
+
+![vim-scroll-position](https://github.com/junegunn/vim-scroll-position/raw/master/screenshot3.png)
