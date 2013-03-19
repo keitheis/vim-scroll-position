@@ -123,7 +123,6 @@ function scroll_position#update()
   " Remove all previous signs when total number of lines changed
   let pkeys = keys(pplaces)
   if lines_changed
-    let temp_lineno = top + float2nr(height * (line('.') - 1) / lines)
     for pos in pkeys
       exec printf("sign unplace 99999%d buffer=%d", pos, bfr)
     endfor
