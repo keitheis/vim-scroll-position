@@ -3,6 +3,11 @@ if exists("g:scroll_position_loaded") || !has('signs')
 endif
 let g:scroll_position_loaded = 1
 
+function! s:is_active()
+  return g:scroll_position_enabled
+endfunction
+
+
 function scroll_position#show()
   let s:types = {}
 
@@ -54,7 +59,7 @@ function scroll_position#show()
 
   augroup ScrollPosition
     autocmd!
-    autocmd BufNewFile,BufRead * exec printf("sign place 8888880 line=1 name=scroll_position_e buffer=%d", bufnr('%'))
+    autocmd BufNewFile,BufRead * :call s:PositionEPrintf()
     autocmd WinEnter,CursorMoved,CursorMovedI,VimResized * :call scroll_position#update()
   augroup END
 
@@ -63,11 +68,20 @@ function scroll_position#show()
   call scroll_position#update()
 endfunction
 
+function! s:PositionEPrintf()
+  if s:is_active()
+    exec printf("sign place 8888880 line=1 name=scroll_position_e buffer=%d", bufnr('%'))
+  endif
+endfunction
+
 function! s:NumSort(a, b)
   return a:a>a:b ? 1 : a:a==a:b ? 0 : -1
 endfunction
 
 function scroll_position#update()
+  if !s:is_active()
+    return
+  end
   if eval(g:scroll_position_exclusion)
     return
   endif
@@ -153,6 +167,9 @@ endfunction
 
 function scroll_position#hide()
   augroup ScrollPosition
+    if !g:scroll_position_enabled
+      return
+    endif
     autocmd!
   augroup END
  " FIXME
